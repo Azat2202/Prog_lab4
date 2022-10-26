@@ -1,11 +1,8 @@
 package tools;
 
-import characters.Human;
-import places.Door;
-
-public abstract class Items{
+public abstract class Item {
     private String name;
-    public Items(String n){
+    public Item(String n){
         name = n;
     }
     public String getName(){
@@ -13,6 +10,21 @@ public abstract class Items{
     }
     @Override
     public boolean equals(Object o){
-        
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Item item = (Item) o;
+        return getName().equals(((Item) o).getName());
+    }
+    @Override
+    public String toString(){
+        return name;
+    }
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }

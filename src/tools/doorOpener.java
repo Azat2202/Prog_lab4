@@ -1,2 +1,6 @@
-package tools;public interface dooropener {
+package tools;
+
+interface doorOpener {
+    boolean varCanOpenDoor = false;
+    boolean canOpenDoor();
 }
