@@ -4,8 +4,7 @@ import characters.Human;
 import characters.Position;
 
 public class Belt extends Item implements Weapon{
-    private boolean isDeadly = false;
-    private String name;
+    protected boolean isDeadly = false;
     public Belt(String n){
         super(n);
     }

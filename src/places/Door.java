@@ -2,46 +2,43 @@ package places;
 
 import tools.Tool;
 
-import java.util.concurrent.locks.Condition;
-
 public class Door {
-    private String name;
-    DoorCondition doorCondition;
+    private final String name;
+    DoorPosition doorPosition = DoorPosition.CLOSED;
 
     Door(String n){
         name = n;
-        doorCondition = DoorCondition.CLOSED;
     }
-    public Door(String n, DoorCondition cond){
+    public Door(String n, DoorPosition cond){
         name = n;
-        doorCondition = cond;
+        doorPosition = cond;
     }
 
     public void unlock(Tool tool){
-        if (tool.canOpenDoor()) {
-            changeCondition(DoorCondition.CLOSED);
+        if (tool.isOpener()) {
+            setPosition(DoorPosition.CLOSED);
         }
     }
     public void openDoor(){
-        if (doorCondition != DoorCondition.LOCKED){
-            changeCondition(DoorCondition.OPEN);
-            System.out.println(getName() + " " + DoorCondition.OPEN.name());
+        if (doorPosition != DoorPosition.LOCKED){
+            setPosition(DoorPosition.OPEN);
+            System.out.println(getName() + " " + DoorPosition.OPEN.name());
         }
     }
     public String getName(){
         return name;
     }
-    public void openDoor(DoorCondition cond){
-        if (doorCondition != DoorCondition.LOCKED){
-            changeCondition(cond);
+    public void openDoor(DoorPosition cond){
+        if (doorPosition != DoorPosition.LOCKED){
+            setPosition(cond);
             System.out.println(this.getName() + cond.name());
         }
     }
-    private void changeCondition(DoorCondition cond){
-        doorCondition = cond;
+    private void setPosition(DoorPosition cond){
+        doorPosition = cond;
 
     }
-    public DoorCondition getCondition(){
-        return doorCondition;
+    public DoorPosition getPosition(){
+        return doorPosition;
     }
 }

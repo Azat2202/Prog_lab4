@@ -4,7 +4,7 @@ public enum Position{
     STAND("STAMD"),
     LIE("LIE"),
     LEAN("LEAN");
-    private String pos;
+    private final String pos;
     Position(String color){
         this.pos = color;
     }

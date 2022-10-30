@@ -1,7 +1,7 @@
 package tools;
 
 public abstract class Item {
-    private String name;
+    private final String name;
     public Item(String n){
         name = n;
     }
@@ -17,7 +17,7 @@ public abstract class Item {
             return false;
         }
         Item item = (Item) o;
-        return getName().equals(((Item) o).getName());
+        return getName().equals(item.getName());
     }
     @Override
     public String toString(){

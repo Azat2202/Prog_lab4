@@ -17,10 +17,13 @@ public class Kitchen extends Room{
     public void setFuses(boolean state){
         fusePlugs = state;
     }
+    public boolean getFuses(){
+        return fusePlugs;
+    }
     @Override
-    public boolean changeLight(Light illumination){
+    public boolean setLight(Light illumination){
         if(fusePlugs){
-            super.changeLight(illumination);
+            super.setLight(illumination);
             return true;
 
         }

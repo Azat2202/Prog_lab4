@@ -4,8 +4,7 @@ import characters.Human;
 import places.Door;
 
 public class Tool extends Item implements doorOpener{
-    private boolean canOpenDoor = false;
-    private String name;
+    protected boolean canOpenDoor = false;
     public Tool(String n){
         super(n);
     }
@@ -15,9 +14,9 @@ public class Tool extends Item implements doorOpener{
     }
     public void use(Human human, Door door){
         door.unlock(this);
-        System.out.println(this.getName() + " используется на " + door.getName());
+        System.out.println(this.getName() + " используется "+ human.getName() + " на " + door.getName());
     }
-    public boolean canOpenDoor(){
+    public boolean isOpener(){
         return canOpenDoor;
     }
 }

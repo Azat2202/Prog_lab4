@@ -7,7 +7,7 @@ public enum Sound {
     GASP("GASPING"),
     SCREAM("SCREAMING"),
     LOUD_SCREAMING("SQUALLING");
-    private String sound;
+    private final String sound;
     Sound(String s){
         this.sound = s;
     }

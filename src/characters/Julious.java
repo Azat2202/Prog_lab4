@@ -8,7 +8,10 @@ public class Julious extends Human{
     public Julious(String name, Position position){
         super(name, position);
     }
-    public void becomeMummy(boolean state){
+    public void setMummy(boolean state){
         being_mummy = state;
+    }
+    public boolean isMummy(){
+        return being_mummy;
     }
 }

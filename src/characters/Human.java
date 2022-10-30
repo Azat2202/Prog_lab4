@@ -10,20 +10,19 @@ import java.util.LinkedList;
 public abstract class Human {
     protected String name;
     protected Position position = Position.STAND;
-    private LinkedList<Item> items = new LinkedList<Item>();
-
-    public void addItem(Item thing){
-        items.add(thing);
-    }
-    public Object[] getItems(){
-        return items.toArray();
-    }
+    protected LinkedList<Item> items = new LinkedList<Item>();
     public Human(String name){
         this.name = name;
     }
     public Human(String name, Position position){
         this.name = name;
         this.position = position;
+    }
+    public void addItem(Item thing){
+        items.add(thing);
+    }
+    public Object[] getItems(){
+        return items.toArray();
     }
     public void makeSound(Sound sound){
         System.out.println(name + " " + sound.getSound());
@@ -39,10 +38,10 @@ public abstract class Human {
         return this.name;
     }
     public void say(String text){
-        System.out.println(this.getName() + " говорит: " + text + '"');
+        System.out.println(this.getName() + " говорит: \"" + text + '"');
     }
     public void changeLight(Room room, Light light){
-        if(room.changeLight(light)) {
+        if(room.setLight(light)) {
             System.out.println(getName() + " переключает свет в " + room.getName() + " на " + light.name());
         }
         else{
@@ -58,10 +57,10 @@ public abstract class Human {
             return false;
         }
         Human human = (Human) o;
-        if(getPosition().equals(human.getPosition())){
+        if(! this.getPosition().equals(human.getPosition())){
             return false;
         }
-        if(Arrays.equals(getItems(), ((Human) o).getItems())){
+        if(! Arrays.equals(getItems(), ((Human) o).getItems())){
             return false;
         }
         return getName().equals(human.getName());
