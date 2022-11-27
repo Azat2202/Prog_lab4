@@ -1,2 +1,5 @@
-package tools;public interface CanBeOpened {
+package tools;
+
+public interface CanBeOpened {
+    void open();
 }

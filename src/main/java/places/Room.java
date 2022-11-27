@@ -38,11 +38,39 @@ public abstract class Room{
     public Object[] getPeople(){
         return people.toArray();
     }
-    public void movePersonTo(Human human, Room destination){
-        this.delPerson(human);
+    public void movePersonTo(Human human, Room destination) {
+        try {
+            this.delPerson(human);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         destination.addPerson(human);
     }
-    protected void delPerson(Human human){
+    protected void delPerson(Human human) throws Exception {
+        class NoPeopleInRoom extends Exception{
+            public NoPeopleInRoom() {
+                super();
+            }
+
+            public NoPeopleInRoom(String message) {
+                super(message);
+            }
+
+            public NoPeopleInRoom(String message, Throwable cause) {
+                super(message, cause);
+            }
+
+            public NoPeopleInRoom(Throwable cause) {
+                super(cause);
+            }
+
+            protected NoPeopleInRoom(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+                super(message, cause, enableSuppression, writableStackTrace);
+            }
+        }
+        if (!people.contains(human)){
+            throw new NoPeopleInRoom("В комнате нет такого человека!");
+        }
         people.remove(human);
     }
     protected boolean onChangeLight(){

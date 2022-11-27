@@ -1,8 +1,9 @@
 package places;
 
+import tools.CanBeOpened;
 import tools.Tool;
 
-public class Door {
+public class Door implements CanBeOpened{
     private final String name;
     DoorPosition doorPosition = DoorPosition.CLOSED;
 
@@ -19,7 +20,7 @@ public class Door {
             setPosition(DoorPosition.CLOSED);
         }
     }
-    public void openDoor(){
+    public void open(){
         if (doorPosition != DoorPosition.LOCKED){
             setPosition(DoorPosition.OPEN);
             System.out.println(getName() + " " + DoorPosition.OPEN.name());
@@ -28,7 +29,7 @@ public class Door {
     public String getName(){
         return name;
     }
-    public void openDoor(DoorPosition cond){
+    public void open(DoorPosition cond){
         if (doorPosition != DoorPosition.LOCKED){
             setPosition(cond);
             System.out.println(this.getName() + cond.name());

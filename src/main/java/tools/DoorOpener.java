@@ -1,6 +1,6 @@
 package tools;
 
-interface doorOpener {
+interface DoorOpener {
     boolean varCanOpenDoor = false;
     boolean isOpener();
 }

@@ -6,7 +6,9 @@ public enum Sound {
     STEPS("STEPPING"),
     GASP("GASPING"),
     SCREAM("SCREAMING"),
-    LOUD_SCREAMING("SQUALLING");
+    LOUD_SCREAMING("SQUALLING"),
+    CLAPPING("CLAPPING"),
+    GRINDING("GRINDING");
     private final String sound;
     Sound(String s){
         this.sound = s;

@@ -3,6 +3,7 @@ package characters;
 public enum Position{
     STAND("STAMD"),
     LIE("LIE"),
+    SQUATTING("SQUATIING"),
     LEAN("LEAN");
     private final String pos;
     Position(String color){

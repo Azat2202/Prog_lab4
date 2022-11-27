@@ -3,7 +3,7 @@ package tools;
 import characters.Human;
 import places.Door;
 
-public class Tool extends Item implements doorOpener{
+public class Tool extends Item implements DoorOpener {
     protected boolean canOpenDoor = false;
     public Tool(String n){
         super(n);
